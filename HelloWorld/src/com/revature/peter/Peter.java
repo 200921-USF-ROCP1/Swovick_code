@@ -71,7 +71,7 @@ public class Peter {
 	// Java favors the most specific scope!
 	//Class scope
 	//Method scope
-	
+	//Block scope
 	//i in method will overshadow class's i
 	public void scopes(int i) {
 		//use "this" to get to class variables
