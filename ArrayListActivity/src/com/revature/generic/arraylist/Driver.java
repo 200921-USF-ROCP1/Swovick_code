@@ -21,20 +21,22 @@ public class Driver {
 			}
 			System.out.println();
 		}
+		/*System.out.println(test.length);
+		System.out.println(test[0].length);*/
+		System.out.println(getTwoDArrayString(test));
 		/*
 		 * System.out.println(test.length); System.out.println(test[0].length);
 		 */
 		System.out.println(getTwoDArrayString(test));
 	}
-
 	public static String getTwoDArrayString(Object[][] twoDArray) {
 		StringBuilder sb = new StringBuilder();
-
-		for (int i = 0; i < twoDArray.length; i++) {
-			for (int j = 0; j < twoDArray[i].length; j++) {
+		
+		for (int i=0; i<twoDArray.length; i++) {
+			for (int j=0; j< twoDArray[i].length; j++) {
 				sb.append(twoDArray[i][j]);
-
-				if (j + 1 < twoDArray[i].length) {
+				
+				if(j + 1 <twoDArray[i].length) {
 					sb.append(", ");
 				}
 			}
