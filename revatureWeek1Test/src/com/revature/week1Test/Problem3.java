@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Problem3 {
 	public static void main(String[] args) {
+		//char t;
+		
+		//System.out.print(t==' ');
+		
 		Scanner sc = new Scanner(System.in);
 		String inp = (String) sc.nextLine();
 		//System.out.println(inp);

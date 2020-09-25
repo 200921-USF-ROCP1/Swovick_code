@@ -10,7 +10,7 @@ public class problem4 {
         /*int sampleInput;
         int result = -404;
         sampleInput = sc.nextInt();*/
-        System.out.println(2**5);  
+        System.out.println(2*5);  
         //write your Logic here
         ArrayList<Integer> lst = new ArrayList<Integer>();
         while(true){
