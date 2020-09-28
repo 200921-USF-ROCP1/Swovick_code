@@ -34,6 +34,5 @@ public class Problem3 {
         String result=sb.toString();
         System.out.println(result);
         //int lateIdx=lst.length-1;
-        System.out.println("Hello");
 	}
 }
