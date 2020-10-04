@@ -10,7 +10,9 @@ package com.revature.app;
 public class App {
 	public static void main(String[] args) {
 		String a="Hello", b="there", c="friend!";
-		
+		String test =new String("str");
+		System.out.println(test== "str");
+		System.out.println(test.equals("str"));
 		String[] arr = {a, b, c};
 		printArgs(arr);
 		

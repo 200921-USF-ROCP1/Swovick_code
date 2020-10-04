@@ -22,5 +22,6 @@ public class Driver {
 		lst.add("there");
 		lst.add("world!");
 		System.out.println(lst.toString());
+		ArrayList<ArrayList<String>> nestedLst = new ArrayList<ArrayList<String>>();
 	}
 }

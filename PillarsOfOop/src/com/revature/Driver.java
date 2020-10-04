@@ -6,12 +6,14 @@ public class Driver {
 		in.printSelf(); //run's child method even though Inheritance object, this is upcasting
 		Inheritance in2 = new Inheritance("Bob", 1);
 		ChildOfInheritance ch = new ChildOfInheritance("Paul", 1);
-		
+		//ChildOfInheritance in2ch = (ChildOfInheritance)in2;
 		Inheritance parentRef = new ChildOfInheritance("Jimmy", 1);
 		ChildOfInheritance childRef = (ChildOfInheritance)parentRef;
-		
 		doTheThing(ch);
 		doTheThing(in2);
+		//doTheThing(in2ch);
+		doTheThing(parentRef);
+		doTheThing(childRef);
 		doMath(1, 2, new AbstrationImpl());
 	}
 	public static void doTheThing(Inheritance in) {

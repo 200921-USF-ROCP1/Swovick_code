@@ -69,9 +69,10 @@ public class Peter {
 	}
 	
 	// Java favors the most specific scope!
-	//Class scope
-	//Method scope
-	//Block scope
+	//Class scope : belongs to whole class
+	//Object/instance scope: belongs to specific instance
+	//Method scope: belongs to specific method
+	//Block scope: belongs to specific block in functions
 	//i in method will overshadow class's i
 	public void scopes(int i) {
 		//use "this" to get to class variables
