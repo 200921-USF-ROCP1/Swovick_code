@@ -11,13 +11,19 @@ import java.util.Properties;
 // It is a singleton. A singleton only has one instance (or zero) and carries a centralized place for data and functionality.
 public class ConnectionService {
 	private static Connection connection;
-	
+	/*public static void main(String[] args) {
+		Connection connect=ConnectionService.getConnection();
+		ConnectionService.closeConnection();
+	}*/
 	public static Connection getConnection() {
 		
 		if(connection ==null) {
 			try {
 				File testFile = new File("test.txt");
 				System.out.println(testFile.exists());
+				System.out.println(testFile.isFile());
+				System.out.println(testFile.canRead());
+				//System.out.println(testFile==null);
 				File file = new File("connection.properties");
 				System.out.println(file.exists());
 				System.out.println(file.isFile());
