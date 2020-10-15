@@ -16,12 +16,12 @@ public class ConnectionService {
 		
 		if(connection ==null) {
 			try {
-				File testFile = new File("test.txt");
+				/*File testFile = new File("test.txt");
 				System.out.println(testFile.exists());
 				File file = new File("connection.properties");
 				System.out.println(file.exists());
 				System.out.println(file.isFile());
-				System.out.println(file.canRead());
+				System.out.println(file.canRead());*/
 				FileInputStream fis = new FileInputStream("connection.properties");
 				Properties prop = new Properties();
 				prop.load(fis);

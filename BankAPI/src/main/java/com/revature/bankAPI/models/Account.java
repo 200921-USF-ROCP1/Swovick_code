@@ -2,8 +2,16 @@ package com.revature.bankAPI.models;
 
 public class Account {
 	private int accountId; 
-	  private double balance;
-	  public int getAccountId() {
+	private double balance;
+	private AccountStatus status;
+	private AccountType type;
+	public Account() {}
+	public Account(double balance, int StatusId, String status, int TypeId, String type) {
+		setBalance(balance);
+		setStatus(new AccountStatus(StatusId, status));
+		setType(new AccountType(TypeId, type));
+	}
+	public int getAccountId() {
 		return accountId;
 	}
 	public void setAccountId(int accountId) {
@@ -27,6 +35,4 @@ public class Account {
 	public void setType(AccountType type) {
 		this.type = type;
 	}
-	private AccountStatus status;
-	  private AccountType type;
 }

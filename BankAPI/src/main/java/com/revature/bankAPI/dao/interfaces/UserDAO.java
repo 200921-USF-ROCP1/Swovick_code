@@ -3,7 +3,7 @@ package com.revature.bankAPI.dao.interfaces;
 import com.revature.bankAPI.models.User;
 
 public interface UserDAO {
-	public void create(User usr);
+	public int create(User usr);
 	
 	public User get(int id);
 	

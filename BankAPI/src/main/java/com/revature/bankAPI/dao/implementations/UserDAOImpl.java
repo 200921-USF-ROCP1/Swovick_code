@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.revature.bankAPI.dao.interfaces.UserDAO;
@@ -17,31 +18,37 @@ public class UserDAOImpl implements UserDAO{
 	public UserDAOImpl() {
 		connection = ConnectionService.getConnection();
 	}
-	public void create(User usr) {
+	public int create(User usr) {
+		int usrId = 0;
 		try {
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO users"
 					+ "(username,password, first_name, last_name, email, role_id) VALUES"
-					+ "(?, ?, ?, ?, ?, ?);");
+					+ "(?, ?, ?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, usr.getUsername());
 			ps.setString(2, usr.getPassword());
 			ps.setString(3, usr.getFirstName());
 			ps.setString(4, usr.getLastName());
 			ps.setString(5, usr.getEmail());
 			Role usrRole = usr.getRole();
-			ps.setInt(6, usrRole.getRoleID());
+			ps.setInt(6, usrRole.getRoleId());
 			ps.executeUpdate();
+			ResultSet rs = ps.getGeneratedKeys();
+			rs.next();
+			usrId = rs.getInt(1);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return usrId;
 	}
 	public User get(int id) {
 		User usr = null;
 		try {
-			PreparedStatement ps = connection.prepareStatement("SELECT * WHERE user_id = ?;");
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM users WHERE user_id = ?;");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
 				usr = new User();
+				usr.setUserId(id);
 				usr.setUsername(rs.getString("username"));
 				usr.setPassword(rs.getString("password"));
 				usr.setFirstName(rs.getString("first_name"));
@@ -52,7 +59,7 @@ public class UserDAOImpl implements UserDAO{
 				Role usrRole = roleDao.get(roleId);
 				usr.setRole(usrRole);
 				ArrayList<Account> usrAccounts = getUserAccounts(usr);
-				usr.addAccounts(usrAccounts);
+				usr.setAccounts(usrAccounts);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -91,7 +98,7 @@ public class UserDAOImpl implements UserDAO{
 			ps.setString(4, usr.getLastName());
 			ps.setString(5, usr.getEmail());
 			Role usrRole = usr.getRole();
-			ps.setInt(6, usrRole.getRoleID());
+			ps.setInt(6, usrRole.getRoleId());
 			ps.setInt(7, usr.getUserId());
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -100,7 +107,13 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 	public void delete(User usr) {
-		// TODO Auto-generated method stub
+		try {
+			PreparedStatement ps =connection.prepareStatement("DELETE FROM users where user_id =?;");
+			ps.setInt(1, usr.getUserId());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 }

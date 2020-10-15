@@ -24,7 +24,7 @@ public class App {
 			res.setLastName("Ressison");
 			//res.setApartment(1);
 			
-			residentDAO.createResident(res);
+			//residentDAO.createResident(res);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

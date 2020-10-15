@@ -16,8 +16,8 @@ INSERT INTO cars (make, model, year, license_plate, owner_id) values
   ('Honda', 'Civic', 2001, 'FFGB91S', 3);
 
 INSERT INTO pets (breed, name, apartment_id, is_service_animal) VALUES
-  ('cat', 'Jimmy', 3, 0),
-  ('dog', 'Spot', 4, 1);
+  ('cat', 'Jimmy', 3, true),
+  ('dog', 'Spot', 4, false);
 
 select * from residents;
 select * from apartments;

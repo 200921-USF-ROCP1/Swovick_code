@@ -6,7 +6,7 @@ import com.revature.bankAPI.models.User;
 
 public interface AccountDAO {
 	
-	public void create(Account accnt, User usr);
+	public int create(Account accnt, User usr);
 	
 	public Account get(int id);
 	
